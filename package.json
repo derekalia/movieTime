@@ -8,6 +8,7 @@
     "lint": "eslint js/**/*.js webpack.config.js",
     "build": "webpack",
     "watch": "npm run build -- --watch",
+    "dev": "webpack-dev-server",
     "dereksFix": "npm run lint -s -- --fix"
   },
   "author": "",
@@ -22,8 +23,13 @@
     "babel-core": "6.16.0",
     "babel-loader": "6.2.7",
     "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
     "eslint": "^3.17.1",
     "eslint-config-standard": "^7.0.0",
-    "eslint-config-standard-react": "^4.3.0"
+    "eslint-config-standard-react": "^4.3.0",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-react": "^6.10.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   }
 }
