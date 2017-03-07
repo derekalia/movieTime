@@ -1,12 +1,16 @@
 import React from 'react'
 import preload from '../public/data.json'
+import ShowCard from './ShowCard'
 
 class Search extends React.Component {
   render () {
     return (
       <div className='search'>
-        <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
-        <h1>Search Page!!</h1>
+        {preload.shows.map(item => {
+          return (
+            <ShowCard key={item.imdbID} item={item} />
+          )
+        })}
       </div>
     )
   }
