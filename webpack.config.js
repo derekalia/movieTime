@@ -10,7 +10,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    //this is setting up the static dir
+    // this is setting up the static dir
     publicPath: '/public/'
   },
 
