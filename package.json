@@ -2,16 +2,21 @@
   "name": "hungryNow2",
   "version": "1.0.0",
   "description": "",
-  "author:":"derek alia",
+  "author:": "derek alia",
   "main": "index.js",
   "scripts": {
-    "lint":"standard"
+    "lint": "standard"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "standard": "^9.0.0"
+    "standard": "^9.0.0",
+    "webpack": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.16.0",    
+    "babel-loader": "6.2.7"
   }
 }
