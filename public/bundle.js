@@ -70,7 +70,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-eval("\n\n//////////////////\n// WEBPACK FOOTER\n// ./js/ClientApp.js\n// module id = 0\n// module chunks = 0\n\n//# sourceURL=webpack:///./js/ClientApp.js?");
+eval("throw new Error(\"Module parse failed: /Users/student/Desktop/hungryNow2/js/ClientApp.js Unexpected token (7:6)\\nYou may need an appropriate loader to handle this file type.\\n|   render () {\\n|     return (\\n|       <div className='app'>\\n|         <div className='landing'>\\n|           <h1>food</h1>\");\n\n//////////////////\n// WEBPACK FOOTER\n// ./js/ClientApp.js\n// module id = 0\n// module chunks = 0\n\n//# sourceURL=webpack:///./js/ClientApp.js?");
 
 /***/ })
 /******/ ]);

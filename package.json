@@ -5,9 +5,10 @@
   "author:": "derek alia",
   "main": "index.js",
   "scripts": {
-    "lint": "standard",
+    "lint": "eslint js/**/*.js webpack.config.js",
     "build": "webpack",
-    "watch": "npm run build -- --watch"
+    "watch": "npm run build -- --watch",
+    "dereksFix": "npm run lint -s -- --fix"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,9 @@
   "devDependencies": {
     "babel-core": "6.16.0",
     "babel-loader": "6.2.7",
-    "babel-preset-es2015": "^6.22.0"
+    "babel-preset-es2015": "^6.22.0",
+    "eslint": "^3.17.1",
+    "eslint-config-standard": "^7.0.0",
+    "eslint-config-standard-react": "^4.3.0"
   }
 }
