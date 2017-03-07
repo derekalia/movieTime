@@ -1,9 +1,13 @@
 import React from 'react'
+import preload from '../public/data.json'
 
 class Search extends React.Component {
   render () {
     return (
-      <h1>Search Page!!</h1>
+      <div className='search'>
+        <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
+        <h1>Search Page!!</h1>
+      </div>
     )
   }
 }

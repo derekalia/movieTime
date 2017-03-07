@@ -11,7 +11,9 @@ module.exports = {
   },
   devServer: {
     // this is setting up the static dir
-    publicPath: '/public/'
+    publicPath: '/public/',
+    historyApiFallback: true
+
   },
 
   // everytime is looks for a file it will look for the js file fitrst and then the json file with the same name
@@ -31,6 +33,10 @@ module.exports = {
         test: /\.js$/,
         loader: 'eslint-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       },
       {
         // exclude: /node_modules/, instead of doing it like this you should build it so that it is just set to a file
