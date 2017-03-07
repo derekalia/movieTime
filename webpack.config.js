@@ -5,7 +5,7 @@ module.exports = {
     entry: './js/ClientApp.js',
     devtool: 'eval',
     //this is where we want the bundle js to go
-    output:{
+    output: {
         path: path.join(__dirname, '/public'),
         filename: 'bundle.js'
     },
@@ -16,16 +16,34 @@ module.exports = {
     },
 
     stats: {
-        color:true,
-        reasons:true,
-        chunks:true
+        color: true,
+        reasons: true,
+        chunks: true
     },
-    module:{
-        rules:[
+    module: {
+        rules: [
             {
+                // exclude: /node_modules/, instead of doing it like this you should build it so that it is just set to a file
+                include: path.resolve(__dirname, 'js'),
+
                 //if it ends in js check it then send it to a loader
                 test: /\.js$/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                //if it passes the test do this array
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        //this is load the styles into the bundle.js file
+                        options: {
+                            //dont inline my images
+                            url: false
+                        }
+                    }
+                ]
             }
         ]
     }
