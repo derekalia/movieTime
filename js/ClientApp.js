@@ -11,14 +11,11 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      movies: [],
+      movies: [], 
       reviews: []
     }
-    this.addToMovies = this.addToMovies.bind(this)
-  }
-
-  componentDidMount () {
     this.getMovies()
+    this.getMovies = this.getMovies.bind(this)
   }
 
   getMovies () {
@@ -31,14 +28,6 @@ class App extends React.Component {
       })
   }
 
-  addToMovies (movie) {
-    // this creates a copy using spread
-    var tempMovies = [...this.state.movies]
-    tempMovies.push(movie)
-    this.setState = {
-      movies: tempMovies
-    }
-  }
 
   render () {
     return (
@@ -47,7 +36,7 @@ class App extends React.Component {
           <Route exact path='/' component={Landing} />
           <Route
             path='/search'
-            component={(props) => <Search addToMovies={this.addToMovies} shows={this.state.movies} {...props} />}
+            component={(props) => <Search addToMovies={this.getMovies} shows={this.state.movies} {...props} />}
           />
           <Route
             path='/details/:id'

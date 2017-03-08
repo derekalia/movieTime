@@ -33,13 +33,13 @@ exports.titleGet = function (req, res) {
         if (titleData === null) {
             var movie
             axios.get(`http://www.omdbapi.com/?t=${title}`)
-                .then((res) => {
+                .then((movieData) => {
                     movie = new Movies({
-                        title: res.data.Title.toUpperCase(),
-                        year: res.data.Released,
-                        info: res.data.Plot,
-                        imdbID: res.data.imdbID,
-                        imdbImage: res.data.Genre
+                        title: movieData.data.Title.toUpperCase(),
+                        year: movieData.data.Released,
+                        info: movieData.data.Plot,
+                        imdbID: movieData.data.imdbID,
+                        imdbImage: movieData.data.Genre
                     })
                     console.log(movie)
                     movie.save()

@@ -12,7 +12,8 @@ class Header extends React.Component {
     axios.get(`/moviesOIMDB/${this.props.searchTerm}`)
       .then((res) => {
         console.log('im in add movie ', res)
-        this.props.addToMovies(res.data.movie)
+        this.props.addToMovies(res.data)
+        
       })
   }
 
