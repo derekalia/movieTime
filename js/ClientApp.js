@@ -5,9 +5,25 @@ import Landing from './Landing'
 import Search from './Search'
 import Details from './Details'
 import preload from '../public/data.json'
+import axios from 'axios'
 
 class App extends React.Component {
-  render () {
+  constructor(props) {
+    super(props)
+    this.state = {
+      movies =[],
+      reviews =[]
+    }
+  }
+
+  getMovies() {
+    axios.get('/movies')
+      .then(res => {
+        console.log(res.body)
+      })
+  }
+
+  render() {
     return (
       <Router>
         <div className='app'>
@@ -19,7 +35,7 @@ class App extends React.Component {
           <Route
             path='/details/:id'
             component={(props) => {
-              console.log(props.match.params.id);
+              console.log(props.match.params.id)
               const shows = preload.shows.filter((show) => props.match.params.id === show.imdbID)
               return <Details show={shows[0]} {...props} />
             }}

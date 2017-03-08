@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom' // only thing i need from react dom is t
 const Landing = () => {
   return (
     <div className='landing'>
-      <h1>food</h1>
+      <h1>Rate A Movie</h1>
       <input type='text' placeholder='search' />
-      <a>or browse all</a>
-      <Link to='/search'>SEARCHHH</Link>
+
+      <br />
+      <Link to='/search'>Browse All</Link>
     </div>
   )
 }

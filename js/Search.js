@@ -1,5 +1,6 @@
 import React from 'react'
 import ShowCard from './ShowCard'
+import Header from './Header'
 
 class Search extends React.Component {
   constructor (props) {
@@ -17,18 +18,15 @@ class Search extends React.Component {
     return (
       <div className='search'>
         <h1>pick a movie</h1>
-        <header>
-          <h1>{this.state.searchTerm}</h1>
-          <input onChange={this.handleSearchTerm} value={this.state.searchTerm} type='text' placeholder='Search' />
-        </header>
-        {this.props.shows.filter(item => {
-          return `${item.title} ${item.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
-        })
-          .map(item => {
-            return (
-              <ShowCard key={item.imdbID} item={item} />
-            )
-          })}
+        <Header
+          showSearch
+          searchTerm={this.state.searchTerm}
+          handleSearchTerm={this.handleSearchTerm}
+        />
+        <h1>{this.state.searchTerm}</h1>
+        {this.props.shows.filter(show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+          .map(show => <ShowCard key={show.imdbID} show={show} />)
+        }
       </div>
     )
   }

@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 var movieSchema = new Schema ({
     title: String,
     year: String,
-    poster: String,
-    trailer: String,
-    description: String,
-    favorite: {type: Boolean, default: false}
+    info: String,
+    imdbID: String,
+    imdbImage: String
 })
+ 
 
-module.exports = mongoose.model('movies', movieSchema);
+module.exports = mongoose.model('movie', movieSchema);

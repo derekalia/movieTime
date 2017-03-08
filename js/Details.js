@@ -1,12 +1,14 @@
 import React from 'react'
+import Header from './Header'
 const { shape, string } = React.PropTypes
 
 class Details extends React.Component {
   render () {
+    console.log(this.props)
     const { title, description, year, poster, trailer } = this.props.show
     return (
       <div>
-        <h1>open</h1>
+        <Header />
         <p>{title}</p>
         <p>{description}</p>
         <p>{year}</p>

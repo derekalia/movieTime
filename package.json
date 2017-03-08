@@ -16,6 +16,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.15.3",
+    "cors": "^2.8.1",
     "express": "^4.15.2",
     "jest-cli": "^19.0.2",
     "mongoose": "^4.8.6",
