@@ -8,35 +8,52 @@ import preload from '../public/data.json'
 import axios from 'axios'
 
 class App extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      movies =[],
-      reviews =[]
+      movies: [],
+      reviews: []
     }
+    this.addToMovies = this.addToMovies.bind(this)
   }
 
-  getMovies() {
+  componentDidMount () {
+    this.getMovies()
+  }
+
+  getMovies () {
     axios.get('/movies')
       .then(res => {
-        console.log(res.body)
+        this.setState({
+          movies: res.data
+        })
+        console.log('in getMovies', res.data)
       })
   }
 
-  render() {
+  addToMovies (movie) {
+    // this creates a copy using spread
+    var tempMovies = [...this.state.movies]
+    tempMovies.push(movie)
+    this.setState = {
+      movies: tempMovies
+    }
+  }
+
+  render () {
     return (
       <Router>
         <div className='app'>
           <Route exact path='/' component={Landing} />
           <Route
             path='/search'
-            component={(props) => <Search shows={preload.shows} {...props} />}
+            component={(props) => <Search addToMovies={this.addToMovies} shows={this.state.movies} {...props} />}
           />
           <Route
             path='/details/:id'
             component={(props) => {
               console.log(props.match.params.id)
-              const shows = preload.shows.filter((show) => props.match.params.id === show.imdbID)
+              const shows = this.state.filter((show) => props.match.params.id === show.imdbID)
               return <Details show={shows[0]} {...props} />
             }}
           />

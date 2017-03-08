@@ -19,6 +19,7 @@ class Search extends React.Component {
       <div className='search'>
         <h1>pick a movie</h1>
         <Header
+          addToMovies={this.props.addToMovies}
           showSearch
           searchTerm={this.state.searchTerm}
           handleSearchTerm={this.handleSearchTerm}

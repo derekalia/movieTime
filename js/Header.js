@@ -1,25 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import cor from 'cors'
 
 class Header extends React.Component {
   constructor (props) {
-    super(props)    
+    super(props)
     this.addMovie = this.addMovie.bind(this)
   }
 
   addMovie () {
-    console.log(this.props.searchTerm)
     axios.get(`/moviesOIMDB/${this.props.searchTerm}`)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log('im in add movie ', res)
+        this.props.addToMovies(res.data.movie)
+      })
   }
 
   render () {
     let utilSpace
     if (this.props.showSearch) {
-      utilSpace = 
-      <div><input onChange={this.props.handleSearchTerm} value={this.props.searchTerm} type='text' placeholder='Search' /><button onClick={()=>this.addMovie()}>Find</button></div>
+      utilSpace =
+        <div><input onChange={this.props.handleSearchTerm} value={this.props.searchTerm} type='text' placeholder='Search' /><button onClick={() => this.addMovie()}>Find</button></div>
     } else {
       utilSpace = (
         <h2>
@@ -34,7 +35,6 @@ class Header extends React.Component {
           <Link to='/'>Home</Link>
         </h1>
         {utilSpace}
-        
       </header>
     )
   }
